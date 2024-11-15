@@ -5,6 +5,7 @@ import { MainNav } from '@/components/mainNav'
 import { buttonVariants } from './ui/button'
 import { DoorOpenIcon } from 'lucide-react'
 import { siteConfig } from '@/config/site'
+import { Input } from './ui/input'
 
 export function SiteHeader() {
   return (
@@ -16,6 +17,10 @@ export function SiteHeader() {
             <CommandMenu />
           </div> */}
           <nav className="flex items-center gap-x-4">
+            <Input
+              placeholder="Search"
+              className="w-64 focus:w-80 h-8 transition-all bg-black"
+            />
             <Link
               href={siteConfig.links.github}
               target="_blank"

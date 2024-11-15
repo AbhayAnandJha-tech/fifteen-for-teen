@@ -78,7 +78,9 @@ export function MainNav() {
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Learn</NavigationMenuTrigger>
+              <NavigationMenuTrigger className="bg-transparent">
+                Learn
+              </NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                   <li className="row-span-3">
@@ -114,7 +116,9 @@ export function MainNav() {
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Community</NavigationMenuTrigger>
+              <NavigationMenuTrigger className="bg-transparent">
+                Community
+              </NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
                   {components.map((component) => (
@@ -131,14 +135,18 @@ export function MainNav() {
             </NavigationMenuItem>
             <NavigationMenuItem>
               <Link href="/resources" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <NavigationMenuLink
+                  className={cn(navigationMenuTriggerStyle(), 'bg-transparent')}
+                >
                   Resources
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <Link href="/pricing" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <NavigationMenuLink
+                  className={cn(navigationMenuTriggerStyle(), 'bg-transparent')}
+                >
                   Pricing
                 </NavigationMenuLink>
               </Link>
