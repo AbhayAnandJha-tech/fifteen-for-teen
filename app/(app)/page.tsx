@@ -92,12 +92,13 @@ export default function Page() {
         <CoursesTabs />
       </SectionHeader>
 
-      <SectionHeader
+      {/* <SectionHeader
         heading="Features Comparison"
         extra="Detailed comparison of all features across plans!"
       >
         <FeaturesTabs />
-      </SectionHeader>
+      </SectionHeader> */}
+
       {/* <div className="mx-auto grid grid-cols-12 gap-8 space-y-0 pt-28 px-12">
         <section className="space-y-4 col-span-6 mt-8"></section>
       </div> */}

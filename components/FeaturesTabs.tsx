@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
 
 const features = {
@@ -92,9 +92,11 @@ export default function FeaturesTabs() {
 
   const [activeTab, setActiveTab] = useState(tabs[0].id)
 
-  //   const filteredCourses = courseData.filter(
-  //     (course) => activeTab === 'all' || course.category.includes(activeTab)
-  //   )
+  // Filter the features based on the activeTab
+  const filteredFeatures = Object.keys(features).map((category) => ({
+    category,
+    items: features[category].filter((feature) => feature[activeTab]),
+  }))
 
   return (
     <div className="flex flex-col">
@@ -122,17 +124,32 @@ export default function FeaturesTabs() {
           </button>
         ))}
       </div>
-      {/* <div className="w-full grid grid-cols-3 gap-6">
-        {filteredCourses.map((course) => (
-          <SubjectEnrollCard
-            key={course.id}
-            name={course.name}
-            description={course.description}
-            stats={course.stats}
-            icon={course.icon}
-          />
+      <div className="w-full grid grid-cols-3 gap-6">
+        {filteredFeatures.map(({ category, items }) => (
+          <div key={category}>
+            <h3 className="text-xl font-bold">{category}</h3>
+            <ul className=''>
+              {items.map((feature) => (
+                <li key={feature.name} className="mb-3">
+                  <h4 className="font-semibold">{feature.name}</h4>
+                  <p>{feature.info}</p>
+                  <ul className="list-disc pl-5">
+                    <li>
+                      <strong>Basic:</strong> {feature.basic}
+                    </li>
+                    <li>
+                      <strong>Pro:</strong> {feature.pro}
+                    </li>
+                    <li>
+                      <strong>Premium:</strong> {feature.premium}
+                    </li>
+                  </ul>
+                </li>
+              ))}
+            </ul>
+          </div>
         ))}
-      </div> */}
+      </div>
     </div>
   )
 }

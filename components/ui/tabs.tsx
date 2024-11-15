@@ -1,9 +1,9 @@
-'use client'
+"use client"
 
-import { cn } from '@/lib/utils'
-import * as TabsPrimitive from '@radix-ui/react-tabs'
-import * as React from 'react'
-import { motion } from 'framer-motion'
+import * as React from "react"
+import * as TabsPrimitive from "@radix-ui/react-tabs"
+
+import { cn } from "@/lib/utils"
 
 const Tabs = TabsPrimitive.Root
 
@@ -13,7 +13,10 @@ const TabsList = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <TabsPrimitive.List
     ref={ref}
-    className={cn('inline-flex space-x-1', className)}
+    className={cn(
+      "inline-flex h-9 items-center justify-center rounded-lg bg-muted p-1 text-muted-foreground",
+      className
+    )}
     {...props}
   />
 ))
@@ -22,29 +25,15 @@ TabsList.displayName = TabsPrimitive.List.displayName
 const TabsTrigger = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>
->(({ className, children, ...props }, ref) => (
+>(({ className, ...props }, ref) => (
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      'relative rounded-full px-3 py-1.5 text-sm font-medium text-white outline-sky-400 transition focus-visible:outline-2',
-      'data-[state=inactive]:hover:text-white/60',
+      "inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow",
       className
     )}
-    style={{
-      WebkitTapHighlightColor: 'transparent',
-    }}
     {...props}
-  >
-    {props['data-state'] === 'active' && (
-      <motion.span
-        layoutId="bubble"
-        className="absolute inset-0 z-10 bg-white mix-blend-difference"
-        style={{ borderRadius: 9999 }}
-        transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-      />
-    )}
-    {children}
-  </TabsPrimitive.Trigger>
+  />
 ))
 TabsTrigger.displayName = TabsPrimitive.Trigger.displayName
 
@@ -54,10 +43,13 @@ const TabsContent = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <TabsPrimitive.Content
     ref={ref}
-    className={cn('mt-2 text-white', className)}
+    className={cn(
+      "mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+      className
+    )}
     {...props}
   />
 ))
 TabsContent.displayName = TabsPrimitive.Content.displayName
 
-export { Tabs, TabsContent, TabsList, TabsTrigger }
+export { Tabs, TabsList, TabsTrigger, TabsContent }
