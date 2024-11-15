@@ -16,13 +16,6 @@ import {
   Leaf,
 } from 'lucide-react'
 
-const tabs = [
-  { id: 'all', label: 'All Courses' },
-  { id: 'popular', label: 'Popular' },
-  { id: 'new', label: 'New' },
-  { id: 'trending', label: 'Trending' },
-]
-
 const courseData = [
   {
     id: 'applied-chemistry',
@@ -136,7 +129,14 @@ const courseData = [
   },
 ]
 
-export default function AnimatedTabs() {
+export default function CoursesTabs() {
+  const tabs = [
+    { id: 'all', label: 'All Courses' },
+    { id: 'popular', label: 'Popular' },
+    { id: 'new', label: 'New' },
+    { id: 'trending', label: 'Trending' },
+  ]
+
   const [activeTab, setActiveTab] = useState(tabs[0].id)
 
   const filteredCourses = courseData.filter(
@@ -159,7 +159,7 @@ export default function AnimatedTabs() {
           >
             {activeTab === tab.id && (
               <motion.span
-                layoutId="bubble"
+                layoutId={`bubble-${tabs[0].id}`}
                 className="absolute inset-0 z-10 bg-white mix-blend-difference"
                 style={{ borderRadius: 9999 }}
                 transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}

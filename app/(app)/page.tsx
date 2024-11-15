@@ -1,7 +1,7 @@
-import AnimatedTabs from '@/components/AnimatedTabs'
+import CoursesTabs from '@/components/CoursesTabs'
+import FeaturesTabs from '@/components/FeaturesTabs'
 import HeroSection from '@/components/HeroSection'
 import SectionHeader from '@/components/SectionHeader'
-import SubjectEnrollCard from '@/components/SubjectEnrollCard'
 import {
   PersonStandingIcon,
   TimerIcon,
@@ -89,15 +89,14 @@ export default function Page() {
         heading="Explore Our Courses"
         extra="Discover the perfect course to advance your engineering journey!"
       >
-        <div>
-          <AnimatedTabs />
-          {/* <div className="w-full grid grid-cols-3 gap-6">
-            <SubjectEnrollCard />
-            <SubjectEnrollCard />
-            <SubjectEnrollCard />
-            <SubjectEnrollCard />
-          </div> */}
-        </div>
+        <CoursesTabs />
+      </SectionHeader>
+
+      <SectionHeader
+        heading="Features Comparison"
+        extra="Detailed comparison of all features across plans!"
+      >
+        <FeaturesTabs />
       </SectionHeader>
       {/* <div className="mx-auto grid grid-cols-12 gap-8 space-y-0 pt-28 px-12">
         <section className="space-y-4 col-span-6 mt-8"></section>

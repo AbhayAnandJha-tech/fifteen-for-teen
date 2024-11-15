@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import { MainNav } from '@/components/mainNav'
 import { buttonVariants } from './ui/button'
-import { DoorOpenIcon, GithubIcon } from 'lucide-react'
+import { DoorOpenIcon } from 'lucide-react'
 import { siteConfig } from '@/config/site'
 
 export function SiteHeader() {

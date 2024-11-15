@@ -7,17 +7,14 @@ import { usePathname } from 'next/navigation'
 import {
   NavigationMenu,
   NavigationMenuContent,
-  NavigationMenuIndicator,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-  NavigationMenuViewport,
 } from '@/components/ui/navigation-menu'
 
 import { cn } from '@/lib/utils'
-import { Badge } from '@/components/ui/badge'
 import { ZapIcon } from 'lucide-react'
 import { siteConfig } from '@/config/site'
 
